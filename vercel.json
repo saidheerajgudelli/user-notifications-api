@@ -1,0 +1,38 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "dist/main.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "env": {
+    "MONGO_URI": "mongodb+srv://saidheerajgudelli:dheeraj11@cluster0.g3nmk.mongodb.net/"
+  },
+  "routes": [
+    {
+      "src": "/api/preferences",
+      "dest": "/api/preferences"
+    },
+    {
+      "src": "/api/preferences/:userId",
+      "dest": "/api/preferences/:userId"
+    },
+    {
+      "src": "/api/notifications/send",
+      "dest": "/api/notifications/send"
+    },
+    {
+      "src": "/api/notifications/stats",
+      "dest": "/api/notifications/stats"
+    },
+    {
+      "src": "/api/notifications/:userId/logs",
+      "dest": "/api/notifications/:userId/logs"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/dist/main.js"
+    }
+  ]
+}
